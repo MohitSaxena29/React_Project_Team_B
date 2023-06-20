@@ -1,0 +1,39 @@
+.attire{
+
+display: flex;
+
+justify-content: center;
+
+top: 50%;
+
+left: 50%;
+
+margin-top: 20px;
+
+margin-left: -150px;
+
+margin-bottom: 25px;
+
+border-radius:  50px 30px 5px;
+
+padding:2px;
+
+}
+
+.cards{
+
+    background-color:#EDEADE  
+
+}
+
+.text-center{
+
+    margin-bottom: 20px;
+
+}
+
+body{
+
+    background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
+
+}
