@@ -251,16 +251,16 @@ export default function Registration() {
               <p class="text-white-50 mb-5">Please enter your details!</p>
 
               <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typeEmailX" value={name} onChange={handleNameChange} autoComplete="off">Name</label>
+                <label class="form-label" for="typeNameX" value={name} onChange={handleNameChange}>Name</label>
                 <input type="name" id="typeNameX" class="form-control form-control-lg "/>  
               </div>
 
               <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typeEmailX" value={username} onChange={handleUsernameChange} autoComplete="off">UserName</label>
+                <label class="form-label" for="typeEmailX" value={username} onChange={handleUsernameChange} >UserName</label>
                 <input type="name" id="typeEmailX" class="form-control form-control-lg"/>
               </div>
               <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typePasswordX" value={password} onChange={handlePasswordChange} autoComplete="off">Password</label>
+                <label class="form-label" for="typePasswordX" value={password} onChange={handlePasswordChange}>Password</label>
                 <input type="password" id="typePasswordX" class="form-control form-control-lg"/>   
               </div>
 

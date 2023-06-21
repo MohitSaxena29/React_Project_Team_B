@@ -6,7 +6,7 @@ import './Configure.css';
 const Configure = () => {
   const [allEntry, setAllEntry] = useState([]);
   const navigate = useNavigate();
-  const [countdown,setCountdown]=useState(50000000);
+  const [countdown,setCountdown]=useState(5);
 
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem('users'));
