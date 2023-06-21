@@ -3,7 +3,7 @@ import Navbar from '../CustomNavbar/Navbar'
 
 export default function Form() {
   // const navigate = useNavigate();
-  // const [title, setTitle] = useState("");
+  // const [titles, setTitle] = useState("");
   // const [description, setDescription] = useState("");
   // const [asignee, setAsignee] = useState("");
   // const [duedate, setDueDate] = useState("");
