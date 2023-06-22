@@ -178,7 +178,7 @@ export default function Login(props) {
                     </p>
 
                     <div class="form-outline form-white mb-4">
-                      <label class="form-label" for="typeEmailX">
+                      <label class="form-label" htmlFor="typeEmailX">
                         UserName
                       </label>
                       <input
@@ -198,7 +198,7 @@ export default function Login(props) {
                     </div>
 
                     <div class="form-outline form-white mb-4">
-                      <label class="form-label" for="typePasswordX">
+                      <label class="form-label" htmlFor="typePasswordX">
                         Password
                       </label>
                       <input

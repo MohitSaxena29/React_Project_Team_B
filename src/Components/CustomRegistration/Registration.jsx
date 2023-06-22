@@ -327,7 +327,7 @@ const[usernameError,setUsernameError]=useState("");
               <p class="text-white-50 mb-5">Please enter your details!</p>
 
               <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typeNameX" >Name</label>
+                <label class="form-label" htmlFor="typeNameX" >Name</label>
                 <input type="name" id="typeNameX" class="form-control form-control-lg " value={name} onChange={handleNameChange} placeholder='Enter Name*'/>  
                 {nameError&& <div className='error  text-danger'>*{nameError}</div>}
 
@@ -335,12 +335,12 @@ const[usernameError,setUsernameError]=useState("");
               </div>
 
               <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typeEmailX"  >UserName</label>
+                <label class="form-label" htmlFor="typeEmailX"  >UserName</label>
                 <input type="name" id="typeEmailX" class="form-control form-control-lg" value={username} onChange={handleUsernameChange} placeholder='Enter User Name*'/>
                 {usernameError&& <div className='error  text-danger'>*{usernameError}</div>}
               </div>
               <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typePasswordX" >Password</label>
+                <label class="form-label" htmlFor="typePasswordX" >Password</label>
                 <input type="password" id="typePasswordX" class="form-control form-control-lg" value={password} onChange={handlePasswordChange} placeholder='Enter Password*'/>  
                 {passwordError&& <div className='error  text-danger'>*{passwordError}</div>}
 
