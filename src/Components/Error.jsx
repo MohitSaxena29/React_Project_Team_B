@@ -44,13 +44,19 @@ export default function Error() {
 
   return (
 
-    <div>
 
-      <h1>Error :Page Not Found</h1>
 
-      <p>You are redirecting to home Page in {countdown} seconds</p>
+<div className='main-container'>
 
-    </div>
+        <div className='error'>
+
+          <h1>Error: Page not found.</h1>
+
+          <p>You are redirecting to login page in {countdown} seconds.</p>
+
+        </div>
+
+      </div>
 
   )
 

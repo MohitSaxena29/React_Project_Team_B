@@ -18,6 +18,7 @@ import { BrowserRouter,Route,Routes } from 'react-router-dom';
 
 import Logout from './Components/Logout';
 import Configure from './Components/DragAndDrop/Configure';
+import New from './Components/DragAndDrop/New';
 
 function App() {
 
@@ -47,15 +48,16 @@ function App() {
 
          
 
-          <Route path="/" element={<Registration />} />
+          <Route path="/register" element={<Registration />} />
 
-          <Route path="/login" element={<Login onLogin={handleLogIn} />} />
+          <Route path="/" element={<Login onLogin={handleLogIn} />} />
 
           {isLogin?(<>
 
             <Route path="/create" element={<Form />} />
             <Route path="/view" element={<View/>} />
             <Route path="/configure" element={<Configure/>}/>
+            <Route path="/configure_new" element={<New/>}/>
 
           </>):(
 

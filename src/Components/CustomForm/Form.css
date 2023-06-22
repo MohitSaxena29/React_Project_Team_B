@@ -1,0 +1,54 @@
+.card {
+
+    border-radius: 1rem;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  }
+
+ 
+
+  .form-title {
+
+    color: rgb(94, 122, 147);
+
+  }
+
+ 
+
+  .custom-form {
+
+    color: rgb(94, 122, 147);
+
+  }
+
+ 
+
+  .submit-btn {
+
+    background-color: rgb(94, 122, 147);
+
+    border: none;
+
+  }
+
+
+  .form-group{
+    margin-bottom: 15px;
+  }
+
+  label{
+    margin-bottom: 10px;
+  }
+
+ 
+
+  .submit-btn:hover {
+
+    background-color: rgb(63, 81, 98);
+
+  }
+
+.container{
+    margin-top: 10px;
+}

@@ -42,13 +42,17 @@ export default function LoginRequired() {
 
   return (
 
-    <div>
+    <div className='main-container'>
+
+    <div className='error'>
 
       <h1>Login Required</h1>
 
-      <p>You are redirecting to Login Page in {countdown} seconds</p>
+      <p>You are redirecting to login page in {countdown} seconds.</p>
 
     </div>
+
+  </div>
 
   )
 

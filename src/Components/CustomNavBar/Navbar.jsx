@@ -1,47 +1,116 @@
-import React from 'react'
+// import React from 'react'
+
+// import { Link } from 'react-router-dom';
+
+// export default function Navbar(props) {
+
+//     return (
+
+//         <div>
+
+//           <nav className="nav">
+
+//             <div className="container">
+
+//               <div className="logo">
+
+//                 <h2 className="navbarTitle">{props.title}</h2>
+
+//               </div>
+
+//               <div id="mainListDiv" className="main_list">
+
+//                 <div className="navlinks">
+
+//                   {props.link && props.link.map((link, index) => (
+
+//                     <div key={index}>
+
+//                         <Link to={link.path}>{link.name}</Link>
+
+//                     </div>
+
+//                   ))}
+
+//                 </div>        
+
+//               </div>
+
+//             </div>
+
+//           </nav>
+
+//         </div>
+
+//       );
+
+// }
+
+import Container from 'react-bootstrap/Container';
+
+import Nav from 'react-bootstrap/Nav';
+
+import Navbar from 'react-bootstrap/Navbar';
 
 import { Link } from 'react-router-dom';
 
-export default function Navbar(props) {
+// import "./App.css"
 
-    return (
+function NavScrollExample(props) {
 
-        <div>
+  return (
 
-          <nav className="nav">
+    <Navbar expand="lg" className="bg-body-tertiary ">
 
-            <div className="container">
+      <Container fluid>
 
-              <div className="logo">
+        <Navbar.Brand href="#">Configuration Board</Navbar.Brand>
 
-                <h2 className="navbarTitle">{props.title}</h2>
+        <Navbar.Toggle aria-controls="navbarScroll" className='navbarScroll'/>
 
-              </div>
+        <Navbar.Collapse id="navbarScroll">
 
-              <div id="mainListDiv" className="main_list">
+          <Nav
 
-                <div className="navlinks">
+            className="me-auto my-2 my-lg-0"
 
-                  {props.link && props.link.map((link, index) => (
+            style={{ maxHeight: '100px' }}
 
-                    <div key={index}>
+            navbarScroll
 
-                        <Link to={link.path}>{link.name}</Link>
+          >
 
-                    </div>
+            <Nav.Link >{props.title}</Nav.Link>
 
-                  ))}
+            <div className="navlinks ">
 
-                </div>        
+               {props.link && props.link.map((link, index) => (
 
-              </div>
+                    <div key={index} className='navlabels'>
+                        <span><Link to={link.path + "   "}>{link.name}</Link></span>
+                        
 
-            </div>
+                     </div>
 
-          </nav>
+                   ))}
 
-        </div>
+                 </div>  
 
-      );
+          </Nav>
+
+         
+
+        </Navbar.Collapse>
+
+      </Container>
+
+    </Navbar>
+
+  );
 
 }
+
+
+
+
+export default NavScrollExample;

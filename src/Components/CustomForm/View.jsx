@@ -134,7 +134,7 @@ export default function View() {
   }, [searchQuery]);
 
   const configureRoute = () => {
-    navigate('/configure');
+    navigate('/configure_new');
   };
 
   const link = [
@@ -143,7 +143,7 @@ export default function View() {
     { name: 'Logout', path: '/logout' }
   ];
 
-  const title = 'Create/View';
+  const title = '';
 
   return (
     <>

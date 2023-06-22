@@ -1,0 +1,100 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    /* display: grid;
+    grid-template-columns: repeat(4, 220px); */
+    max-width: 100vw;
+    margin: 20px;
+    
+  }
+
+
+  /* .App {
+    font-family: sans-serif;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 220px);
+    max-width: 1000px;
+    margin: 20px;
+    
+  }
+   */
+  .griditemUI {
+    background-color: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+    cursor: -webkit-grab;
+  }
+  
+  .container {
+    background-color: #fff;
+  }
+
+  .GridContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
+  
+  .GridItem {
+    flex: 0 0 calc(25% - 16px);
+    margin: 8px;
+  }
+  
+
+
+.back{
+  background: hsla(298, 68%, 90%, 1);
+
+background: linear-gradient(90deg, hsla(298, 68%, 90%, 1) 0%, hsla(30, 82%, 91%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(298, 68%, 90%, 1) 0%, hsla(30, 82%, 91%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(298, 68%, 90%, 1) 0%, hsla(30, 82%, 91%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F6D5F7", endColorstr="#FBE9D7", GradientType=1 );
+font-weight: bolder;
+}
+
+
+
+label{
+  font-weight: bolder;
+}
+
+
+.btn{
+  border: 2px solid black;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.update:hover{
+  background-color: green;
+
+}
+
+.delete:hover{
+  background-color: red;
+}
+
+
+.state{
+  float: bottom;
+}
+
+
+@media (max-width: 450px)
+{
+  .btn{
+    margin:0px;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  .css-1wnsr1i{
+    width: 300px;
+  }
+}
