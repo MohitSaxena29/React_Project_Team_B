@@ -17,7 +17,6 @@ export default function Login(props) {
   const [passwordError, setPasswordError] = useState("");
 
   const handleUsernameChange = (e) => {
-    // setUsername(e.target.value);
     const value = e.target.value;
 
     setUsername(value);
@@ -34,7 +33,6 @@ export default function Login(props) {
   };
 
   const handlePasswordChange = (e) => {
-    // setPassword(e.target.value);
     const value = e.target.value;
 
     setPassword(value);
@@ -72,7 +70,7 @@ export default function Login(props) {
 
       setTimeout(() => {
         navigate("/create");
-      }, 2000);
+      }, 0);
 
       //   alert("Login successful!");
     }
@@ -83,7 +81,7 @@ export default function Login(props) {
   };
 
   const link = [
-    { name: "Login", path: "/" },
+    { name: "Login", path: "/login" },
 
     { name: "Register", path: "/register" },
   ];
@@ -93,77 +91,6 @@ export default function Login(props) {
   return (
     <>
       <Navbar link={link} title={title} />
-
-      {/* <div className="container customContainer col-md-4">
-
-
-        <h2 className="heading">Login</h2>
-
- 
-
-         <div className="backgroundImg"></div>
-
-        <form className="formContainer" onSubmit={handleLogin}>
-
-          <div className="form-group">
-
-            <label className="form-label">Username:</label>
-
-            <input
-
-              type="text"
-
-              className="form-control"
-
-              value={username}
-
-              onChange={handleUsernameChange}
-
-              autoComplete="off"
-
-            />
-
-          </div>
-
-          <div className="form-group">
-
-            <label className="form-label">Password:</label>
-
-            <input
-
-              type="password"
-
-              className="form-control"
-
-              value={password}
-
-              onChange={handlePasswordChange}
-
-              autoComplete="off"
-
-            />
-
-          </div>
-
-          <button className="btn btn-primary customButton" type="submit">
-
-            Login
-
-          </button>
-
-          <br />
-
-          <br />
-
-        <p className='notedText'>
-
-          <span className='notUserText'>Not a user?</span> <a className='nottedLink' href="/">Register</a>
-
-        </p>
-
-        </form>
-
-      </div> */}
 
       <section class="vh-100 gradient-custom">
         <div class="container py-2">

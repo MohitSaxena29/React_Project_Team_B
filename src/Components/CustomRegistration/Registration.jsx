@@ -1,198 +1,103 @@
-import React,{useState} from 'react'
-
-import Navbar from '../CustomNavBar/Navbar'
-import { useNavigate } from 'react-router-dom'; 
+import React, { useState } from "react";
+import Navbar from "../CustomNavBar/Navbar";
+import { useNavigate } from "react-router-dom";
 
 export default function Registration() {
-    const navigate=useNavigate();
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [usernameError, setUsernameError] = useState("");
 
-    const [username, setUsername] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
-    const [password, setPassword] = useState("");
+  const [nameError, setNameError] = useState("");
 
-    const [name, setName] = useState("");
+  const handleUsernameChange = (e) => {
+    const value = e.target.value;
+    setUsername(value);
+    setUsernameError("");
 
-const[usernameError,setUsernameError]=useState("");
+    if (!/^[a-zA-Z0-9]+$/.test(value)) {
+      setUsernameError("Username should contain only letters and numbers");
+    } else if (value.length < 5) {
+      setUsernameError("Username should be atleast 5 characters long");
+    } else if (value.length > 20) {
+      setUsernameError("Username should not exceed 20 characters");
+    }
+  };
 
-   const[passwordError,setPasswordError]=useState("");
+  const handlePasswordChange = (e) => {
 
-   const[nameError,setNameError]=useState("");
+    const value = e.target.value;
 
+    setPassword(value);
 
-    const handleUsernameChange = (e) => {
+    setPasswordError("");
 
-        // setUsername(e.target.value);
-        const value =e.target.value;
+    if (value.length < 5) {
+      setPasswordError("Password should be atleast 5 characters long");
+    }
+  };
 
-        setUsername(value);
+  const handleNameChange = (e) => {
+    const value = e.target.value;
 
-        setUsernameError("");
+    setName(value);
 
-        if(!/^[a-zA-Z0-9]+$/.test(value)){
+    setNameError("");
 
-            setUsernameError("Username should contain only letters and numbers");
+    if (!/^[a-zA-Z\s]+$/.test(value)) {
+      setNameError("Name should contain only letters and spaces");
+    } else if (value.length < 3) {
+      setNameError("Name should be atleast 3 characters long");
+    } else if (value.length > 30) {
+      setNameError("Name should not exceed 30 characters");
+    }
+  };
 
-        }
+  const handleRegister = (e) => {
 
-        else if(value.length<5){
+    if (nameError || usernameError || passwordError) {
+      return;
+    }
 
-            setUsernameError("Username should be atleast 5 characters long");
+    // Check if user already exists
 
-        }
+    const usersData = JSON.parse(localStorage.getItem("usersData")) || [];
 
-        else if(value.length>20){
+    const existingUser = usersData.find((user) => user.username === username);
 
-            setUsernameError("Username should not exceed 20 characters");
+    if (existingUser) {
+      alert("User already exists. Please login.");
+      navigate("/login");
 
-        }
+      return;
+    }
 
+    const newUser = {
+      username: username,
 
+      password: password,
 
-
-
-
+      name: name,
     };
 
+    usersData.push(newUser);
 
+    localStorage.setItem("usersData", JSON.stringify(usersData));
 
+    console.log(username);
+    console.log(password);
 
-    const handlePasswordChange = (e) => {
+    alert("Registration successful. Please login.");
 
-        // setPassword(e.target.value);
-        const value =e.target.value;
+    setUsername("");
 
-        setPassword(value);
-
-        setPasswordError("");
-
-        if(value.length<5){
-
-            setPasswordError("Password should be atleast 5 characters long");
-
-        }
-    };
-
-    const handleNameChange = (e) => {
-
-        // setName(e.target.value);
-        const value =e.target.value;
-
-        setName(value);
-
-        setNameError("");
-
-        if(!/^[a-zA-Z\s]+$/.test(value)){
-
-            setNameError("Name should contain only letters and spaces");
-
-        }
-
-        else if(value.length<3){
-
-            setNameError("Name should be atleast 3 characters long");
-
-        }
-
-        else if(value.length>30){
-
-            setNameError("Name should not exceed 30 characters");
-
-        }
-
-
-
-
-    };
-
-
-
-
-    // const handleEmailChange = (e) => {
-
-    //   setEmail(e.target.value);
-
-    // };
-
-
-
-
-    // const handleMobileChange = (e) => {
-
-    //   setMobile(e.target.value);
-
-    // };
-
-
-
-
-    const handleRegister = (e) => {
-
-        // e.preventDefault();
-
-        if(nameError||usernameError||passwordError){
-
-            return;
-
-        }
-
-
-        // Check if user already exists
-
-        const usersData = JSON.parse(localStorage.getItem("usersData")) || [];
-
-        const existingUser = usersData.find((user) => user.username === username);
-
-
-
-
-        if (existingUser) {
-
-            alert("User already exists. Please login.");
-            navigate('/login');
-
-            return;
-
-        }
-
-
-
-
-        // Register new user
-
-
-
-
-        const newUser = {
-
-            username:username,
-
-            password:password,
-
-            name:name,
-
-        };
-
-       
-
-        usersData.push(newUser);
-
-        localStorage.setItem("usersData", JSON.stringify(usersData));
-
-        console.log(username);
-        console.log(password);
-       
-
-
-
-
-        alert("Registration successful. Please login.");
-
-        setUsername("");
-
-        setPassword("");
+    setPassword("");
 
         setName("");
-        navigate("/");
+        navigate("/login");
 
     };
 
@@ -202,150 +107,80 @@ const[usernameError,setUsernameError]=useState("");
 
     const link = [
 
-        { name: "Login", path: "/" },
+        { name: "Login", path: "/login" },
 
-        { name: "Register", path: "/register" },
+    { name: "Register", path: "/register" },
+  ];
 
-    ]
+  const title = " ";
 
-    const title = " "
+  return (
+    <>
+      <Navbar link={link} title={title} />
 
-    return (<>
+      <section class="gradient-custom">
+        <div class="container py-2">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card bg-dark text-white">
+                <div class="card-body text-center">
+                  <div>
+                    <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+                    <p class="text-white-50 mb-5">Please enter your details!</p>
 
-        <Navbar link={link} title={title} />
+                    <div class="form-outline form-white mb-4">
+                      <label class="form-label" htmlFor="typeNameX">
+                        Name
+                      </label>
+                      <input
+                        type="name"
+                        id="typeNameX"
+                        class="form-control form-control-lg "
+                        value={name}
+                        onChange={handleNameChange}
+                        placeholder="Enter Name*"
+                      />
+                      {nameError && (
+                        <div className="error  text-danger">*{nameError}</div>
+                      )}
+                    </div>
 
-        {/* <div className="container customContainer">
-
-
-            <h2 className="heading">Register</h2>
-
-
-            <div className="row">
-
-                <div className="">
-
-                    <form className="formContainer" onSubmit={handleRegister}>
-
-                        <div className="form-group">
-
-                            <label className="form-label">Name:</label>
-
-                            <input
-
-                                type="text"
-
-                                className="form-control"
-
-                                value={name}
-
-                                onChange={handleNameChange}
-
-                                placeholder=""
-
-                            />
-
+                    <div class="form-outline form-white mb-4">
+                      <label class="form-label" htmlFor="typeEmailX">
+                        UserName
+                      </label>
+                      <input
+                        type="name"
+                        id="typeEmailX"
+                        class="form-control form-control-lg"
+                        value={username}
+                        onChange={handleUsernameChange}
+                        placeholder="Enter User Name*"
+                      />
+                      {usernameError && (
+                        <div className="error  text-danger">
+                          *{usernameError}
                         </div>
-
-
-
-
-                        <div className="form-group">
-
-                            <label className="form-label">Username:</label>
-
-                            <input
-
-                                type="text"
-
-                                className="form-control"
-
-                                value={username}
-
-                                onChange={handleUsernameChange}
-
-                            />
-
+                      )}
+                    </div>
+                    <div class="form-outline form-white mb-4">
+                      <label class="form-label" htmlFor="typePasswordX">
+                        Password
+                      </label>
+                      <input
+                        type="password"
+                        id="typePasswordX"
+                        class="form-control form-control-lg"
+                        value={password}
+                        onChange={handlePasswordChange}
+                        placeholder="Enter Password*"
+                      />
+                      {passwordError && (
+                        <div className="error  text-danger">
+                          *{passwordError}
                         </div>
-
-                        <div className="form-group">
-
-                            <label className="form-label">Password:</label>
-
-                            <input
-
-                                type="password"
-
-                                className="form-control"
-
-                                value={password}
-
-                                onChange={handlePasswordChange}
-
-                                placeholder=""
-
-                            />
-
-                        </div>
-
-
-
-
-                        <button type="submit" className="btn btn-primary customButton">
-
-                            Register
-
-                        </button>
-
-                        <br />
-
-                        <br />
-
-                        <p className="notedText">
-
-                            <span className="alreadyUserText">Already a user? </span> <a className="nottedLink" href="/login">Login</a>
-
-                        </p>
-
-                    </form>
-
-                </div>
-
-            </div>
-
-        </div> */}
-
-<section class="gradient-custom" >
-  <div class="container py-2">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white" >
-          <div class="card-body text-center">
-
-            <div>
-
-              <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
-              <p class="text-white-50 mb-5">Please enter your details!</p>
-
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" htmlFor="typeNameX" >Name</label>
-                <input type="name" id="typeNameX" class="form-control form-control-lg " value={name} onChange={handleNameChange} placeholder='Enter Name*'/>  
-                {nameError&& <div className='error  text-danger'>*{nameError}</div>}
-
-
-              </div>
-
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" htmlFor="typeEmailX"  >UserName</label>
-                <input type="name" id="typeEmailX" class="form-control form-control-lg" value={username} onChange={handleUsernameChange} placeholder='Enter User Name*'/>
-                {usernameError&& <div className='error  text-danger'>*{usernameError}</div>}
-              </div>
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" htmlFor="typePasswordX" >Password</label>
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" value={password} onChange={handlePasswordChange} placeholder='Enter Password*'/>  
-                {passwordError&& <div className='error  text-danger'>*{passwordError}</div>}
-
-
-              </div>
+                      )}
+                    </div>
 
               <button class="btn btn-outline-light btn-lg px-5" type="submit" onClick={handleRegister}>Register</button>
               <div>
@@ -354,7 +189,7 @@ const[usernameError,setUsernameError]=useState("");
                       <a
                         class="text-white-50 fw-bold"
                         className="nottedLink"
-                        href="/"
+                        href="/login"
                       >
                         LogIn
                       </a>
@@ -369,10 +204,5 @@ const[usernameError,setUsernameError]=useState("");
 </section>
 
     </>
-
-    );
-
-
-
-
+  );
 }

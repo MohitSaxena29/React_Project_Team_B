@@ -2,6 +2,10 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+
+>>>>>>> e30e8c08daf5049b76afef6bdc290cc2885e2a22
 function NavScrollExample(props) {
   const handleSearchOnchange=(e)=>{
     props.searchFunction(e.target.value)
@@ -24,6 +28,7 @@ function NavScrollExample(props) {
                         <span><Link to={link.path + "   "}>{link.name}</Link></span>
                      </div>
                    ))}
+<<<<<<< HEAD
                  {props.navWithSearch ? (<>
                   <div>
                   <input type="text" name="Search Bar" id="" onChange={handleSearchOnchange}/>
@@ -32,12 +37,14 @@ function NavScrollExample(props) {
                  </div>  
           </Nav>   
       </Navbar.Collapse>
+=======
+                 </div>  
+          </Nav>
+        </Navbar.Collapse>
+>>>>>>> e30e8c08daf5049b76afef6bdc290cc2885e2a22
       </Container>
     </Navbar>
   );
 }
-
-
-
 
 export default NavScrollExample;
