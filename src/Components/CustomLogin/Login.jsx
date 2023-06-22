@@ -70,7 +70,7 @@ export default function Login(props) {
 
       setTimeout(() => {
         navigate("/create");
-      }, 2000);
+      }, 0);
 
       //   alert("Login successful!");
     }

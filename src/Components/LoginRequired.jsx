@@ -17,7 +17,9 @@ export default function LoginRequired() {
     // Redirect to login page after the countdown reaches 0
 
     if (countdown === 0) {
-      navigate("/login");
+
+      navigate("/");
+
     }
 
     return () => {
