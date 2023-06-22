@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { useNavigate } from 'react-router-dom';
-import './Configure.css';
 const Configure = () => {
   const [allEntry, setAllEntry] = useState([]);
   const navigate = useNavigate();

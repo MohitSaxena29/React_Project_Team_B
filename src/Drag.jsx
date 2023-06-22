@@ -1,21 +1,14 @@
 import React,{useState} from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-// import { useNavigate } from 'react-router-dom';
 
 const Drag=()=>{
     const [title,setTitle]=useState('');
     const [description,setDescription]=useState('');
     const [allEntry, setallEntry] = useState([]);
-    // const navigate=useNavigate();
     const addData=(e)=>{
         e.preventDefault();
         const newEntry={title:title , description: description};
-        // console.log(newEntry);
         {{(title.trim() !== '' && description.trim() !== '')?setallEntry([...allEntry,newEntry]):alert('Please Enter Data')}}
-        // console.log(allEntry);
-        // console.log('1')
-        // {{(title.trim() !== '' && description.trim() !== '')?navigate('/view',{state:{title:title,description:description}}):navigate('/view',{state:{title:'please enter data in form',description:'please enter data in form'}});}}
-        // navigate('/view',{state:{allEntry:allEntry}});
     }
 
     
@@ -46,13 +39,6 @@ const Drag=()=>{
                             )
                         })
                     }
-                    {/* <h5 className="card-title">Title: {data.title}</h5>
-                    <h5 className="card-title">Description: {data.description}</h5> */}
-                    {/* <p className="card-text">Description: {location.state.description}</p> */}
-                    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
-                
-            {/* </div> */}
-
         </>
     )
 }
