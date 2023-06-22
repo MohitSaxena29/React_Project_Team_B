@@ -19,7 +19,7 @@ import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import Logout from './Components/Logout';
 import Configure from './Components/DragAndDrop/Configure';
 import New from './Components/DragAndDrop/New';
-
+import LandingPage from './Components/LandingPage/LandingPage';
 function App() {
 
   const [isLogin,setIsLogin]=useState(false)
@@ -47,10 +47,10 @@ function App() {
         <Routes>
 
          
-
+        <Route path="/" element={<LandingPage />} />
           <Route path="/register" element={<Registration />} />
 
-          <Route path="/" element={<Login onLogin={handleLogIn} />} />
+          <Route path="/login" element={<Login onLogin={handleLogIn} />} />
 
           {isLogin?(<>
 

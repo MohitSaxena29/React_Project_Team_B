@@ -192,7 +192,7 @@ const[usernameError,setUsernameError]=useState("");
         setPassword("");
 
         setName("");
-        navigate("/");
+        navigate("/login");
 
     };
 
@@ -202,7 +202,7 @@ const[usernameError,setUsernameError]=useState("");
 
     const link = [
 
-        { name: "Login", path: "/" },
+        { name: "Login", path: "/login" },
 
         { name: "Register", path: "/register" },
 
@@ -354,7 +354,7 @@ const[usernameError,setUsernameError]=useState("");
                       <a
                         class="text-white-50 fw-bold"
                         className="nottedLink"
-                        href="/"
+                        href="/login"
                       >
                         LogIn
                       </a>

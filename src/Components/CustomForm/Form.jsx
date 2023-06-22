@@ -315,13 +315,6 @@
 
 
 
-
-
-
-
-
-
-
 import React, { useState } from 'react';
 
 import Navbar from '../CustomNavBar/Navbar';
@@ -356,8 +349,6 @@ export default function Form() {
     { name: "Logout", path: "/logout" }
 
   ];
-
-
 
 
   const title = " ";

@@ -25,7 +25,7 @@ export default function LoginRequired() {
 
     if (countdown === 0) {
 
-      navigate("/");
+      navigate("/login");
 
     }
 

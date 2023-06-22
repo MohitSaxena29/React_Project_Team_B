@@ -83,7 +83,7 @@ export default function Login(props) {
   };
 
   const link = [
-    { name: "Login", path: "/" },
+    { name: "Login", path: "/login" },
 
     { name: "Register", path: "/register" },
   ];
