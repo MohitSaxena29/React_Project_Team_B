@@ -1,5 +1,5 @@
 import "./New.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Card,
@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import { createTheme } from "@mui/material/styles";
+
 import {
   GridContextProvider,
   GridDropZone,
@@ -22,12 +23,17 @@ import {
 } from "react-grid-dnd";
 
 const theme = createTheme();
+
 const TitleTypography = styled(Typography)(({ theme }) => ({
   overflow: "hidden",
   textOverflow: "ellipsis",
+  // display: "-webkit-box",
+  // "-webkit-line-clamp": 2,
+  // "-webkit-box-orient": "vertical",
   maxHeight: "3.6em",
   lineHeight: theme.typography.h6.lineHeight,
 }));
+
 
 export default function New() {
   const [allEntry, setAllEntry] = useState([]);
@@ -48,7 +54,7 @@ export default function New() {
 
   useEffect(() => {
     localStorage.setItem("users", JSON.stringify(allEntry));
-  }, [allEntry]);
+  }, [allEntry])
 
   function onChange(sourceId, sourceIndex, targetIndex) {
     const nextState = swap(allEntry, sourceIndex, targetIndex);
@@ -83,7 +89,7 @@ export default function New() {
       titles: updatedTitle,
       description: updatedDescription,
       asignee: updatedAsignee,
-      duedate: updatedDueDate,
+      duedate: updatedDueDate
     };
 
     const updatedEntries = allEntry.map((entry) =>
@@ -95,11 +101,13 @@ export default function New() {
   };
 
   return (
+    <>
     <ThemeProvider theme={theme}>
       <Box className="App">
         <GridContextProvider onChange={onChange}>
           <GridDropZone
             id="items"
+            // boxesPerRow={getBoxesPerRow()}
             boxesPerRow={3}
             rowHeight={280}
             style={{ height: "var(--grid-height)" }}
@@ -114,35 +122,30 @@ export default function New() {
                   }}
                 >
                   <CardActionArea>
-                    <CardContent className="back">Title</CardContent>
+                    <CardContent  
+                      className="back">Title   
+                    </CardContent>
                     <CardContent>
                       <TitleTypography variant="h6" component="div">
-                        {item.titles}
+                         {item.titles}
                       </TitleTypography>
+
                     </CardContent>
                   </CardActionArea>
-                  <button
-                    className="btn delete"
-                    onClick={() => removeEle(item.id)}
-                  >
+                  <button className="btn delete" onClick={() => removeEle(item.id)}>
                     Delete
                   </button>
-                  <button
-                    className="btn update"
-                    onClick={() => openModal(item)}
-                  >
-                    Update
-                  </button>
+                  <button className="btn update" onClick={() => openModal(item)}>Update</button>
                 </Card>
               </GridItem>
             ))}
           </GridDropZone>
         </GridContextProvider>
         <div>
-          <button type="button" className="btn" onClick={changeRoute}>
-            State
-          </button>
+        
         </div>
+
+
 
         <Modal open={modalOpen} onClose={closeModal}>
           <Box
@@ -185,16 +188,17 @@ export default function New() {
             />
             <label>DueDate</label>
             <p>
-              <input
-                type="date"
-                className="updateData"
-                label="DueDate"
-                value={updatedDueDate}
-                onChange={(e) => setUpdatedDueDate(e.target.value)}
-                fullWidth
-                multiline
-                rows={4}
-              />
+              
+            <input
+              type="date"
+              className="updateData"
+              label="DueDate"
+              value={updatedDueDate}
+              onChange={(e) => setUpdatedDueDate(e.target.value)}
+              fullWidth
+              multiline
+              rows={4}
+            />
             </p>
 
             <Button variant="contained" onClick={updateCard}>
@@ -202,7 +206,22 @@ export default function New() {
             </Button>
           </Box>
         </Modal>
+      <button type="button" onClick={changeRoute} className="stateButton  btn">
+          Save Configuration
+         </button>
       </Box>
+      
+      
     </ThemeProvider>
+    </>
+    
   );
 }
+
+
+
+
+
+
+
+
