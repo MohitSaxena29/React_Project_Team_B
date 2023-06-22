@@ -1,0 +1,19 @@
+.bgImage{
+    
+        background-image: url(../../Assets/images.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        background-color: darkgray;
+    
+}
+h1,ul,li{
+    justify-content: center;
+    color: grey;
+}
