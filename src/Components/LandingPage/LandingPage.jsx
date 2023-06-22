@@ -20,7 +20,7 @@ function LandingPage() {
           <div className="card-body">
             <h5 className="card-title">Hi there, users!</h5>
             <h6 className="card-subtitle mb-2 text-muted">Welcome to the Configurable Board</h6>
-            <p className="card-text">
+            <p className="card-text ct">
               <ul>
                 <h3>
                   Our configurable board provides various functionalities that encompass all the task management activities:
